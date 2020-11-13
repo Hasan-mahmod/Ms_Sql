@@ -136,8 +136,9 @@ go
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 
 --using STORE PROCEDURE
+truncate table Student
 exec sp_student 'Kamal','kamal@mail.com','01777777777','07-15-2010','0','07-15-2019'
-exec sp_student 'Kamal','jamal@mail.com','01777777770','07-15-2011','1','07-15-2018'
+exec sp_student 'Jamal','jamal@mail.com','01777777770','07-15-2011','1','07-15-2018'
 exec sp_student 'Sadek','sadek@mail.com','01777777772','07-15-2000','0','07-15-2015'
 go
 exec sp_subjects 'English'
@@ -165,16 +166,21 @@ insert into ClassSubject values(1,1,1),
 								(3,2,2),
 								(3,3,3)
 go
+--truncate table ClassStudent
+go
 insert into ClassStudent values(1,1,'02-02-2020',1,4.5),
 								(2,2,'02-02-2020',0,0),
 								(2,3,'02-02-2020',0,0),
-								(1,2,'02-02-2020',0,0)
+								(2,1,'02-02-2020',0,0)
 go
 insert into Fee values(1,'02-02-2020','monthly',200),
 						(2,'02-02-2020','monthly',200),
 						(3,'02-02-2020','monthly',200),
 						(1,'03-03-2020','monthly',200),
-						(1,'04-04-2020','monthly',200)
+						(1,'04-04-2020','monthly',200),
+						(1,getdate(),'monthly',200),
+						(1,getdate()-30,'monthly',200)
+					
 
 go
 insert into Notice values('This is Notice 1','Test Notice 1 Description','02-02-2020'),
